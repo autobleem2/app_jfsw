@@ -1,0 +1,15 @@
+diff --git a/src/game.c b/src/game.c
+index e3e958d..3f547f4 100644
+--- a/src/game.c
++++ b/src/game.c
+@@ -3544,7 +3544,9 @@ int app_main(int argc, char const * const argv[])
+         settings.selectedgrp = gamegrp;
+         settings.netoverride = netparam > 0;
+ 
+-        if (configloaded < 0 || (ForceSetup && CommandSetup == 0) || (CommandSetup > 0)) {
++        // AutoBleem: -nosetup (CommandSetup < 0) wins even on the first start, when there is no config yet -
++        // a launcher driven by a pad cannot click through the setup window; the defaults are what it would show
++        if (CommandSetup >= 0 && (configloaded < 0 || ForceSetup || CommandSetup > 0)) {
+             if (startwin_run(&settings) == STARTWIN_CANCEL) {
+                 uninitengine();
+                 exit(0);

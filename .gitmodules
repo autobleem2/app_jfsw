@@ -1,0 +1,3 @@
+[submodule "upstream/jfsw"]
+	path = upstream/jfsw
+	url = https://github.com/jonof/jfsw.git
