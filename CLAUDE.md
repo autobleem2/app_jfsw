@@ -46,4 +46,9 @@ fifth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
   frame's aspect, so no arguments are needed (checked before copying anything from 2020 - see Wolf4SDL).
 - **Build on the server**: sync with MSYS2's rsync (excluding `/build_*`, `/dist`), then
   `docker run --rm -u $(id -u):$(id -g) -v $PWD:/src -w /src ghcr.io/autobleem2/autobleem-build:develop ci/build.sh all`.
-- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist).
+- **Releases**: a `v<version>` tag (`v20260105-1`) builds a stable GitHub release (in the release image,
+  `autobleem-build:latest`); `master` follows the released commit. The Store gets it by hand:
+  `gh release download <tag>`, `tools/store_item.py` per zip, then autobleem-repo's
+  `repo_publish.sh store <key> dist/store/<key>/*`. v20260105-1 went to all five catalogs on 2026-09-25,
+  replacing the RetroBoot Shadow Warrior on psc.
+- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist, section 12).
