@@ -51,7 +51,8 @@ target_native() {
 target_psc() {
     CC="$PSC/bin/armv8-sony-linux-gnueabihf-gcc"; CXX="$PSC/bin/armv8-sony-linux-gnueabihf-g++"
     STRIP="$PSC/bin/armv8-sony-linux-gnueabihf-strip"; PLATFORM_T=LINUX; EXTRA_LDFLAGS=""; EXE=sw
-    CFLAGS_T="-mfloat-abi=hard -march=armv8-a -mfpu=neon-vfpv4"
+    # AB_PSC: what only the console build differs in (patches/jfsw/0004-psc-stick-sensitivity.patch)
+    CFLAGS_T="-mfloat-abi=hard -march=armv8-a -mfpu=neon-vfpv4 -DAB_PSC"
     SDL_CFLAGS=$(PKG_CONFIG_LIBDIR="$PSC/sdl2/lib/pkgconfig" pkg-config --cflags sdl2)
     SDL_LIBS=$(PKG_CONFIG_LIBDIR="$PSC/sdl2/lib/pkgconfig" pkg-config --libs sdl2)
 }

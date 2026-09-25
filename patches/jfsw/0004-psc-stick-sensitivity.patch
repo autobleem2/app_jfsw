@@ -1,0 +1,16 @@
+--- a/src/config.c
++++ b/src/config.c
+@@ -252,7 +252,13 @@
+    CONTROL_SetMouseSensitivity(gs.MouseSpeed);
+ 
+    for (i=0; i < MAXJOYAXES; i++) {
++#ifdef AB_PSC
++      // AutoBleem: the console's pad has no stick - the virtual pad turns its D-pad into the left stick at
++      // full deflection, which turns and moves far too fast at 1.0; 0.20 (the owner's setting, 2026-09-25)
++      JoystickAnalogScale[i] = 13107;
++#else
+       JoystickAnalogScale[i] = 65536;
++#endif
+       JoystickAnalogDead[i] = 1024;
+       JoystickAnalogSaturate[i] = 32767-1024;
+       CONTROL_SetAnalogAxisScale( i, JoystickAnalogScale[i], controldevice_joystick );
