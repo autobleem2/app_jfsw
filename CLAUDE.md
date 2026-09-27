@@ -53,4 +53,6 @@ fifth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
   `gh release download <tag>`, `tools/store_item.py` per zip, then autobleem-repo's
   `repo_publish.sh store <key> dist/store/<key>/*`. v20260105-1 went to all five catalogs on 2026-09-25,
   replacing the RetroBoot Shadow Warrior on psc.
-- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist, section 12).
+- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist, section 12). An early build
+  (-1) was started on a console on 2026-09-25; the fault found there is fixed in -2 (`22b4de0`, the turning
+  axis), which has not run on a console yet.
