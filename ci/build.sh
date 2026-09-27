@@ -157,13 +157,13 @@ check() { # check <key>: the program is the platform's and needs nothing we do n
     case "$key" in
         psc)
             file "$stage/bin/psc/sw" | grep -q 'ELF 32-bit LSB.*ARM'
-            bash tools/check_psc_binary.sh "$stage/bin/psc/sw" "$PSC" ;;
+            bash /opt/ab/tools/check_psc_binary.sh "$stage/bin/psc/sw" "$PSC" ;;
         rpi) file "$stage/bin/rpi/sw" | grep -q 'ELF 32-bit LSB.*ARM' ;;
         rpi64) file "$stage/bin/rpi64/sw" | grep -q 'ELF 64-bit LSB.*aarch64' ;;
         pcusb) file "$stage/bin/pcusb/sw" | grep -q 'ELF 32-bit LSB.*Intel 80386' ;;
         win) file "$stage/bin/win/sw.exe" | grep -q 'PE32+ executable.*x86-64' ;;
     esac
-    bash tools/check_needed.sh "$key" "$stage"
+    bash /opt/ab/tools/check_needed.sh "$key" "$stage"
 }
 
 build_native() {
