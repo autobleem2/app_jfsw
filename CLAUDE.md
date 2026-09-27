@@ -9,7 +9,7 @@ fifth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 ## The owner's decisions for this port (2026-09-25)
 
 - **Upstream**: `jonof/jfsw` pinned at tag `20260105`, with its own submodules (jfbuild, jfmact, jfaudiolib -
-  relative URLs, `../<name>.git` on github.com/jonof). The package version is `20260105-1` (`VERSION`).
+  relative URLs, `../<name>.git` on github.com/jonof). The package version is `20260105-2` (`VERSION`).
 - **The 2020 layout** (`patches/jfsw/0001-psc-pad-layout.patch`, JFSW's "classic" default tables in
   `_functio.h`): Square fire, Cross crouch (double press: AutoRun), Circle open, Triangle jump, Select use item,
   Start menu (double press: map), L1 next item, R1 next weapon, L2/R2 strafe (the digital axes 4 and 5,
