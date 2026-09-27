@@ -30,7 +30,8 @@ fifth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 | `resources/` | `app.ini` (`Exec=bin/{key}/sw`, `Args=-nosetup`, no `Lib`, `VirtualPad=true`), `readme.txt`, `icon.png` |
 | `ci/build.sh` | `native|psc|rpi|rpi64|pcusb|win|all`: the data from our mirror, then upstream's Makefile with everything on its command line - `PLATFORM`, `RENDERTYPE` (SDL on Linux, **WIN on Windows**), CPU flags on `CC`/`CXX` (not `CFLAGS`: `bin2c` is built with `HOSTCXX=g++` and run during the build), a generated `sdl2-config` for the target, `PKGCONFIG=false` (so jfaudiolib takes SDL audio only - no ALSA, Vorbis or FluidSynth to ship; GTK off too), a `git` on `PATH` that answers `describe` with the upstream tag (the version stamps; `version.c` still says "(not set)" - that is upstream's fallback file, harmless) |
 | `tools/make_icon.py` | draws the icon from the game's own title screen (TITLE_PIC, tile 2324, out of sw.grp's TILESnnn.ART in PALETTE.DAT's colours), fitted to the width - the words run to its edges |
-| `tools/store_item.py`, `tools/check_psc_binary.sh`, `tools/check_needed.sh` | as in the other ports |
+| `tools/store_item.py` | as in the other ports |
+| `/opt/ab/tools/check_psc_binary.sh`, `/opt/ab/tools/check_needed.sh` (autobleem-build image) | no longer vendored (APPS-6) - as in the other ports |
 
 ## Things to know
 
