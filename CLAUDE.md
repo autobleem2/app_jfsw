@@ -9,7 +9,7 @@ fifth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 ## The owner's decisions for this port (2026-09-25)
 
 - **Upstream**: `jonof/jfsw` pinned at tag `20260105`, with its own submodules (jfbuild, jfmact, jfaudiolib -
-  relative URLs, `../<name>.git` on github.com/jonof). The package version is `20260105-2` (`VERSION`).
+  relative URLs, `../<name>.git` on github.com/jonof). The package version is `20260105-3` (`VERSION`).
 - **The 2020 layout** (`patches/jfsw/0001-psc-pad-layout.patch`, JFSW's "classic" default tables in
   `_functio.h`): Square fire, Cross crouch (double press: AutoRun), Circle open, Triangle jump, Select use item,
   Start menu (double press: map), L1 next item, R1 next weapon, L2/R2 strafe (the digital axes 4 and 5,
@@ -48,6 +48,7 @@ fifth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
   frame's aspect, so no arguments are needed (checked before copying anything from 2020 - see Wolf4SDL).
 - **Build on the server**: sync with MSYS2's rsync (excluding `/build_*`, `/dist`), then
   `docker run --rm -u $(id -u):$(id -g) -v $PWD:/src -w /src ghcr.io/autobleem2/autobleem-build:develop ci/build.sh all`.
+- **Category** (the owner, 2026-10-07): every `app.ini` carries `Category=games` (the launcher's Apps tab files an App by it: games, emulators, tools, media, other - any case) and `tools/store_item.py` writes `"category": "games"` into the Store item.
 - **Releases**: a `v<version>` tag (`v20260105-1`) builds a stable GitHub release (in the release image,
   `autobleem-build:latest`); `master` follows the released commit. The Store gets it by hand:
   `gh release download <tag>`, `tools/store_item.py` per zip, then autobleem-repo's
