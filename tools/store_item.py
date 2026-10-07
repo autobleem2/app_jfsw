@@ -38,6 +38,7 @@ def main(argv):
     item = {
         "id": "app/shadowwarrior",
         "kind": "app",
+        "category": "games",
         "title": "Shadow Warrior (Shareware)",
         "version": version,
         "author": "JFSW by Jonathon Fowler; Shadow Warrior by 3D Realms",
